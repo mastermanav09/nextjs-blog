@@ -53,7 +53,6 @@ function ContactForm() {
       setEnteredName("");
       setEnteredMessage("");
     } catch (error) {
-      console.log(error);
       setRequestStatus("error");
     }
   }

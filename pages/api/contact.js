@@ -50,7 +50,6 @@ const handler = async (req, res) => {
 
     client.close();
 
-    console.log(newMessage);
     res
       .status(201)
       .json({ message: "Message stored successfully.", content: newMessage });
