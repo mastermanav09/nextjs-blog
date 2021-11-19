@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import Hero from "../components/home-page/hero";
+import Hero from "../components/home-page/Hero";
 import FeaturedPosts from "../components/home-page/FeaturedPosts";
 import { getFeaturedPosts } from "../lib/posts-util";
 
