@@ -1,6 +1,6 @@
 import React from "react";
 import PostGrid from "../posts/PostGrid";
-import classes from "./featuredPosts.module.css";
+import classes from "./FeaturedPosts.module.css";
 
 const FeaturedPosts = (props) => {
   return (
