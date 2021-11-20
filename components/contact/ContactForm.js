@@ -8,6 +8,7 @@ function ContactForm() {
   const [enteredName, setEnteredName] = useState("");
   const [enteredMessage, setEnteredMessage] = useState("");
   const [requestStatus, setRequestStatus] = useState(); // pending, success, error
+  const [errorStatus, setErrorStatus] = useState(null);
 
   useEffect(() => {
     if (requestStatus === "success" || requestStatus === "error") {
@@ -23,7 +24,7 @@ function ContactForm() {
 
   async function sendMessageHandler(event) {
     event.preventDefault();
-
+    setErrorStatus(null);
     // optional: add client-side validation
 
     try {
@@ -41,9 +42,11 @@ function ContactForm() {
       });
 
       const data = await response.json();
+      setErrorStatus(data.message);
 
       if (!response.ok) {
         setRequestStatus("error");
+        setErrorStatus(data.message);
         throw new Error(data.message || "Something went wrong!");
       }
 
@@ -79,7 +82,7 @@ function ContactForm() {
     notificationData = {
       status: "error",
       title: "Error!",
-      message: "Sorry! We couldn't send your message.",
+      message: errorStatus || "Sorry! We couldn't send your message.",
     };
   }
 
