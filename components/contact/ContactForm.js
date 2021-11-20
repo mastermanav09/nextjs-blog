@@ -41,19 +41,14 @@ function ContactForm() {
         },
       });
 
-      console.log("contact form 1");
-
       const data = await response.json();
       setErrorStatus(data.message);
 
       if (!response.ok) {
-        console.log("responseok wrror");
         setRequestStatus("error");
         setErrorStatus(data.message);
         throw new Error(data.message || "Something went wrong!");
       }
-
-      console.log("contact form 2");
 
       setRequestStatus("success");
 
@@ -61,7 +56,6 @@ function ContactForm() {
       setEnteredName("");
       setEnteredMessage("");
     } catch (error) {
-      console.log("contact form error catch");
       setRequestStatus("error");
     }
   }

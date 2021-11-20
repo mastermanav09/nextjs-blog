@@ -32,7 +32,6 @@ const handler = async (req, res) => {
     try {
       client = await connectDatabase();
     } catch (error) {
-      console.log("api connect databse error");
       res.status(500).json({
         message: "Could not connect to the database.",
       });
@@ -44,7 +43,7 @@ const handler = async (req, res) => {
       const result = await db.collection("messages").insertOne(newMessage);
     } catch (error) {
       client.close();
-      console.log("api connecting messages error");
+
       res.status(500).json({
         message: "Storing message failed!",
       });
