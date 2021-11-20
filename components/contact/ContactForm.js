@@ -47,6 +47,7 @@ function ContactForm() {
       setErrorStatus(data.message);
 
       if (!response.ok) {
+        console.log("responseok wrror");
         setRequestStatus("error");
         setErrorStatus(data.message);
         throw new Error(data.message || "Something went wrong!");
