@@ -41,6 +41,8 @@ function ContactForm() {
         },
       });
 
+      console.log("contact form 1");
+
       const data = await response.json();
       setErrorStatus(data.message);
 
@@ -50,12 +52,15 @@ function ContactForm() {
         throw new Error(data.message || "Something went wrong!");
       }
 
+      console.log("contact form 2");
+
       setRequestStatus("success");
 
       setEnteredEmail("");
       setEnteredName("");
       setEnteredMessage("");
     } catch (error) {
+      console.log("contact form error catch");
       setRequestStatus("error");
     }
   }
